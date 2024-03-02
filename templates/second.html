@@ -1,0 +1,51 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block body %}
+
+<section>
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active slide">
+                <img src="/static/images/slide1.jpg" class="d-block w-100">
+              </div>
+              <div class="carousel-item slide">
+                <img src="/static/images/slide2.jpg" class="d-block w-100">
+              </div>
+              <div class="carousel-item slide">
+                <img src="/static/images/slide3.jpg" class="d-block w-100">
+              </div>
+            
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+{% if b %}
+<h2 class="section2 heading">{{a}} location in {{b}}</h2>
+{% else %}
+<h2 class="section2 heading">{{a}}</h2>
+{% endif %}
+<section class="s_section2">
+    {% for i in data %}
+    
+        <div class="card_div bg-dark">
+            <a href="detail{{i.id}}">
+            <img src="{{i.image}}" alt="">
+        
+
+            <div class="card_inner_div" >
+                <h4 class="hedding_4 white">{{i.name}}</h4>
+                <a href="detail{{i.id}}" class="btn btn-primary">See Details</a>
+            </div>
+        </a>
+        </div>
+    {% endfor %}
+
+</section>
+{% endblock body %}
